@@ -1,0 +1,666 @@
+
+/* =========================================================
+   GALLERY MODAL - FULL CSS
+========================================================= */
+
+/* ---------- MODAL BACKGROUND ---------- */
+html body .gallery-modal {
+  position: fixed !important;
+  top: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  left: 0 !important;
+
+  width: 100vw !important;
+  height: 100vh !important;
+
+  margin: 0 !important;
+  padding: 12px !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  background: rgba(0, 0, 0, 0.94) !important;
+
+  z-index: 2147483647 !important;
+
+  overflow: hidden !important;
+}
+
+html body .gallery-modal.gallery-hidden {
+  display: none !important;
+}
+
+
+/* =========================================================
+   CLOSE BUTTON
+========================================================= */
+
+.gallery-close-btn {
+  position: absolute;
+
+  top: 12px;
+  right: 18px;
+
+  width: 50px;
+  height: 50px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin: 0;
+  padding: 0;
+
+  border: none;
+  outline: none;
+
+  background: transparent;
+
+  color: #ffffff;
+
+  font-size: 42px;
+  font-weight: 300;
+  line-height: 1;
+
+  cursor: pointer;
+
+  z-index: 100001;
+
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.gallery-close-btn:hover {
+  color: #f35525;
+  transform: scale(1.1);
+}
+
+
+/* =========================================================
+   MAIN MODAL CONTENT
+========================================================= */
+
+.gallery-modal-content {
+  position: relative;
+
+  width: 100%;
+  max-width: 1500px;
+
+  height: 96vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  margin: 0 auto;
+
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   IMAGE AREA
+========================================================= */
+
+.gallery-image-container {
+  position: relative;
+
+  width: 100%;
+
+  /*
+     Leave enough space for:
+     - thumbnails
+     - Book Now button
+  */
+  height: calc(100% - 115px);
+
+  min-height: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  background: transparent;
+
+  touch-action: none;
+
+  user-select: none;
+
+  -webkit-user-select: none;
+}
+
+
+/* =========================================================
+   MAIN IMAGE
+========================================================= */
+
+.gallery-modal-img {
+  display: block;
+
+  width: auto;
+  height: auto;
+
+  /*
+     Image can use almost the entire image area.
+     Your image ratio is 1200x864.
+  */
+  max-width: 100%;
+  max-height: 100%;
+
+  object-fit: contain;
+
+  margin: 0;
+  padding: 0;
+
+  border: 0;
+
+  user-select: none;
+  -webkit-user-select: none;
+
+  -webkit-user-drag: none;
+
+  transform-origin: center center;
+
+  will-change: transform;
+
+  cursor: pointer;
+
+  transition: transform 0.15s ease;
+}
+
+.gallery-modal-img.dragging {
+  cursor: grabbing;
+}
+
+.gallery-modal-img.zoomed {
+  cursor: grab;
+}
+
+
+/* =========================================================
+   IMAGE TITLE
+========================================================= */
+
+.gallery-modal-title {
+  position: absolute;
+
+  left: 50%;
+  bottom: 6px;
+
+  transform: translateX(-50%);
+
+  width: calc(100% - 120px);
+
+  margin: 0;
+  padding: 0 10px;
+
+  color: #ffffff;
+
+  text-align: center;
+
+  font-size: 16px;
+  font-weight: 500;
+
+  line-height: 1.4;
+
+  white-space: nowrap;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  pointer-events: none;
+
+  text-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+
+/* =========================================================
+   PREVIOUS / NEXT BUTTON
+========================================================= */
+
+.gallery-prev-btn,
+.gallery-next-btn {
+  position: absolute;
+
+  top: 50%;
+
+  width: 54px;
+  height: 54px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin: 0;
+  padding: 0;
+
+  border: none;
+  outline: none;
+
+  border-radius: 50%;
+
+  background: rgba(0, 0, 0, 0.65);
+
+  color: #ffffff;
+
+  font-size: 30px;
+  font-weight: 400;
+
+  line-height: 1;
+
+  cursor: pointer;
+
+  z-index: 30;
+
+  transform: translateY(-50%);
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.gallery-prev-btn {
+  left: 15px;
+}
+
+.gallery-next-btn {
+  right: 15px;
+}
+
+.gallery-prev-btn:hover,
+.gallery-next-btn:hover {
+  background: rgba(0, 0, 0, 0.9);
+
+  color: #f35525;
+
+  transform:
+    translateY(-50%)
+    scale(1.08);
+}
+
+.gallery-prev-btn:active,
+.gallery-next-btn:active {
+  transform:
+    translateY(-50%)
+    scale(0.95);
+}
+
+
+/* =========================================================
+   THUMBNAILS
+========================================================= */
+
+.gallery-modal-thumbs {
+  flex: 0 0 72px;
+
+  width: 100%;
+  height: 72px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+
+  padding: 7px 0;
+
+  margin: 0;
+
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  scroll-behavior: smooth;
+
+  scrollbar-width: thin;
+
+  scrollbar-color:
+    #f35525
+    transparent;
+}
+
+
+/* Chrome / Edge / Safari scrollbar */
+
+.gallery-modal-thumbs::-webkit-scrollbar {
+  height: 5px;
+}
+
+.gallery-modal-thumbs::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.gallery-modal-thumbs::-webkit-scrollbar-thumb {
+  background: #f35525;
+
+  border-radius: 10px;
+}
+
+
+/* =========================================================
+   THUMBNAIL IMAGE
+========================================================= */
+
+.gallery-thumb {
+  flex: 0 0 auto;
+
+  width: 82px;
+  height: 58px;
+
+  display: block;
+
+  object-fit: cover;
+
+  margin: 0;
+  padding: 0;
+
+  border: 2px solid transparent;
+
+  border-radius: 6px;
+
+  opacity: 0.65;
+
+  cursor: pointer;
+
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.gallery-thumb:hover {
+  opacity: 1;
+
+  transform: scale(1.05);
+}
+
+.gallery-thumb.gallery-active {
+  opacity: 1;
+
+  border-color: #f35525;
+
+  box-shadow:
+    0 0 0 1px rgba(243, 85, 37, 0.4);
+}
+
+
+/* =========================================================
+   BOOK NOW BUTTON
+========================================================= */
+
+.
+  n:hover {
+  background: #000000;
+
+  color: #ffffff;
+
+  transform: scale(1.03);
+}
+
+
+/* =========================================================
+   LARGE DESKTOP
+========================================================= */
+
+@media (min-width: 1200px) {
+
+  .gallery-modal {
+    padding: 10px;
+  }
+
+  .gallery-modal-content {
+    max-width: 1500px;
+
+    height: 97vh;
+  }
+
+  .gallery-image-container {
+    height: calc(100% - 115px);
+  }
+
+  .gallery-modal-img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+
+  .gallery-prev-btn,
+  .gallery-next-btn {
+    width: 58px;
+    height: 58px;
+
+    font-size: 32px;
+  }
+
+  .gallery-prev-btn {
+    left: 20px;
+  }
+
+  .gallery-next-btn {
+    right: 20px;
+  }
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (min-width: 769px) and (max-width: 1199px) {
+
+  .gallery-modal {
+    padding: 10px;
+  }
+
+  .gallery-modal-content {
+    width: 96%;
+
+    height: 94vh;
+  }
+
+  .gallery-image-container {
+    height: calc(100% - 115px);
+  }
+
+  .gallery-modal-title {
+    font-size: 15px;
+  }
+
+  .gallery-prev-btn,
+  .gallery-next-btn {
+    width: 48px;
+    height: 48px;
+
+    font-size: 26px;
+  }
+
+  .gallery-prev-btn {
+    left: 10px;
+  }
+
+  .gallery-next-btn {
+    right: 10px;
+  }
+
+  .gallery-thumb {
+    width: 75px;
+    height: 53px;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+  html body .gallery-modal {
+    padding: 5px !important;
+  }
+
+  .gallery-modal-content {
+    width: 100%;
+
+    height: 80vh;
+  }
+
+  .gallery-image-container {
+    width: 100%;
+
+    height: calc(100% - 100px);
+  }
+
+  .gallery-modal-img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+
+  .gallery-close-btn {
+    top: 4px;
+    right: 5px;
+
+    width: 42px;
+    height: 42px;
+
+    font-size: 32px;
+  }
+
+  .gallery-prev-btn,
+  .gallery-next-btn {
+    width: 42px;
+    height: 42px;
+
+    font-size: 21px;
+  }
+
+  .gallery-prev-btn {
+    left: 5px;
+  }
+
+  .gallery-next-btn {
+    right: 5px;
+  }
+
+  .gallery-modal-title {
+    bottom: 4px;
+
+    width: calc(100% - 80px);
+
+    font-size: 13px;
+  }
+
+  .gallery-modal-thumbs {
+    flex: 0 0 58px;
+
+    height: 58px;
+
+    gap: 6px;
+
+    padding: 5px 0;
+  }
+
+  .gallery-thumb {
+    width: 64px;
+    height: 45px;
+
+    border-radius: 5px;
+  }
+
+ 
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 479px) {
+
+  html body .gallery-modal {
+    padding: 3px !important;
+  }
+
+  .gallery-modal-content {
+    width: 100%;
+    height: 70vh;
+  }
+
+  .gallery-image-container {
+    height: calc(100% - 95px);
+  }
+
+  .gallery-modal-img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+
+  .gallery-close-btn {
+    top: 2px;
+    right: 3px;
+
+    width: 40px;
+    height: 40px;
+
+    font-size: 30px;
+  }
+
+  .gallery-prev-btn,
+  .gallery-next-btn {
+    width: 38px;
+    height: 38px;
+
+    font-size: 19px;
+  }
+
+  .gallery-prev-btn {
+    left: 3px;
+  }
+
+  .gallery-next-btn {
+    right: 3px;
+  }
+
+  .gallery-modal-title {
+    width: calc(100% - 70px);
+
+    font-size: 12px;
+  }
+
+  .gallery-modal-thumbs {
+    flex: 0 0 54px;
+
+    height: 54px;
+
+    gap: 5px;
+
+    padding: 4px 0;
+  }
+
+  .gallery-thumb {
+    width: 58px;
+    height: 41px;
+  }
+
+}
+
+
+/* =========================================================
+   REDUCE MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .gallery-modal *,
+  .gallery-modal *::before,
+  .gallery-modal *::after {
+    scroll-behavior: auto !important;
+
+    transition: none !important;
+  }
+}
+
