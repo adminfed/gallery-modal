@@ -37,7 +37,6 @@
       title: "Cozy Lounge Area with Smart TV Setup",
     },
       {  src:"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjmgr6AMG8Kf_wQZ8WCKjlTwpyaW8VGgRF3kpUymsG9YrpseDxoIWt_Ee0Ve6Znqbvl-0pZhnEd8scJQ1YNYMoZ4Mka9rC3S3toGpB-aly4SpNq3Xbofph16gfN7Wp3RUShX5MssziwSR8FMwtWYsPDnCZNS6FbnpxgJY70Xn3EN8aQrfFbf5J0KGqgmWNB/w640-h461/20_1200x864.png",
-      alt: "Contemporary Living Space with Integrated Kitchen and Dining",
       title: "Contemporary Living Space with Integrated Kitchen and Dining",
     },
       {  src:"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEibV7hY9y52Dmpykvi42dO48VyHxiFwqSTeOgiqz-kveSf00mf3bexV5WC-pcRz_4277M1llXF3aNGWTaFVu3KYEkCTHUNLC50AICkfT0CFfh78IujHUkRQOtwPFJ7YG9te2Z0Hq67GHsp8apEVaS6Wu46A4PWVq0uqvdJ51TVN9wRzy0YIr4ceKq-Gz9vv/w640-h461/23_1200x864.jpg",
