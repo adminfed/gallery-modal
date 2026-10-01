@@ -1,0 +1,37 @@
+
+/* Gallery thumbnail horizontal scroll */
+.gallery-modal-thumbs {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: #888888 #f1f1f1;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Chrome / Edge / Safari */
+.gallery-modal-thumbs::-webkit-scrollbar {
+  height: 8px;
+}
+
+.gallery-modal-thumbs::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.gallery-modal-thumbs::-webkit-scrollbar-thumb {
+  background: #888888;
+  border-radius: 4px;
+}
+
+.gallery-modal-thumbs::-webkit-scrollbar-thumb:hover {
+  background: #555555;
+}
+
+/* Không để thumbnail bị co lại */
+.gallery-modal-thumbs &gt; * {
+  flex: 0 0 auto;
+}
